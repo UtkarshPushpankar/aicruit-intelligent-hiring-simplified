@@ -1,14 +1,27 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Orbitron, Poppins } from "next/font/google";
+import { Poppins, Orbitron } from 'next/font/google';
+import { Uncial_Antiqua } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const poppins = Poppins({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-poppins',
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900']
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const uncial_antiqua = Uncial_Antiqua({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-uncial_antiqua',
+  weight: "400"
+});
+
+const orbitron = Orbitron({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-orbitron',
+  weight: ['400', '500', '600', '700', '800', '900']
 });
 
 export const metadata = {
@@ -19,9 +32,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${poppins.variable} ${orbitron.variable} ${uncial_antiqua.variable} antialiased gradient`} >
         {children}
       </body>
     </html>
