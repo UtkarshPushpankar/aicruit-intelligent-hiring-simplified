@@ -34,7 +34,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${poppins.variable} ${orbitron.variable} ${uncial_antiqua.variable} antialiased gradient`} >
+      <body className={`${poppins.variable} ${orbitron.variable} ${uncial_antiqua.variable} antialiased gradient`} >        
         <Navbar />
         {children}
         <Footer />

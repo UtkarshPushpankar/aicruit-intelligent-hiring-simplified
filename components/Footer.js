@@ -1,10 +1,12 @@
+"use client"
 import React from 'react'
+import Link from 'next/link'
 
 const Footer = () => {
     return (
         <footer>
-            <br />
-            <div className="footer flex items-center justify-around">
+            <div className='bg-gray-300 w-[100vw] h-[2px]'></div>
+            <div className="footer flex items-center justify-evenly">
                 <div className="left m-16">
                     <div className="parent">
                         <div className="card">
@@ -53,9 +55,10 @@ const Footer = () => {
                 </div>
 
                 <div className="right">
-                    <div class="parent-right">
-                        <div class="child child-1">
-                            <button class="button btn-1">
+                    <div className="parent-right flex gap-3">
+                        <div className="child child-1">
+
+                            <button className="flex items-center justify-center button btn-1">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     height="1em"
@@ -67,9 +70,10 @@ const Footer = () => {
                                     ></path>
                                 </svg>
                             </button>
+
                         </div>
-                        <div class="child child-2">
-                            <button class="button btn-2">
+                        <div className="child child-2">
+                            <button className="flex items-center justify-center button btn-2">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     height="1em"
@@ -82,8 +86,8 @@ const Footer = () => {
                                 </svg>
                             </button>
                         </div>
-                        <div class="child child-3">
-                            <button class="button btn-3">
+                        <div className="child child-3">
+                            <button onClick={() => window.open("https://github.com/UtkarshPushpankar", "_blank")} className="flex items-center justify-center button btn-3">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     height="1em"
@@ -94,22 +98,17 @@ const Footer = () => {
                                     ></path>
                                 </svg>
                             </button>
+
                         </div>
-                        <div class="child child-4">
-                            <button class="button btn-4">
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    height="1em"
-                                    viewBox="0 0 320 512"
-                                    fill="#4267B2"
-                                >
-                                    <path
-                                        d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"
-                                    ></path>
-                                </svg>
+                        <div className="child child-4">
+                            <button className="flex items-center justify-center button btn-4">
+                                <img width={20} src="linkedin.png" alt="" />
                             </button>
+
                         </div>
                     </div>
+
+                    <p className='mt-[20px]'>AIcruit - Copyright &copy; 2025 | AI Mavericks</p>
 
                 </div>
 
