@@ -5,7 +5,7 @@ const Navbar = () => {
     return (
         <nav className='border max-w-[40vw] m-auto border-gray-300 h-[9vh] rounded-xl mt-10 bg-white shadow-2xl navbar flex items-center justify-between '>
 
-            <div className="logo flex items-center gap-2">
+            <div className="logo-nav flex items-center gap-2">
                 <img className='ml-4' width={50} src="AIcruit_nobg.png" alt="logo" />
                 <div className="text">
                     <span className='uncial text-xl text-teal-400'>AI</span>
