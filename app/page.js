@@ -1,3 +1,5 @@
+import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
 import Image from "next/image";
 
 export default function Home() {
@@ -23,8 +25,8 @@ export default function Home() {
 
         </div> */}
 
-        <h1 className="text-5xl orbitron text-gradient max-w-[55vw] m-auto">Revolutionize Your Hiring Process with AIcruit</h1> 
-  
+        <h1 className="text-5xl orbitron text-gradient max-w-[55vw] m-auto">Revolutionize Your Hiring Process with AIcruit</h1>
+
 
         <p className="max-w-[65vw] m-auto mt-5 text-lg poppins subtext-gradient">Experience the future of recruitment with AI-powered automation. From resume screening to candidate assessment, AIcruit makes hiring smarter, faster and more efficient</p>
 
@@ -97,9 +99,64 @@ export default function Home() {
 
         </div>
 
-        <div className='bg-gray-300 w-[100vw] h-[2px]'></div>
+        <div className='bg-gray-300 w-[60vw] m-auto h-[2px]'></div>
+
+
 
       </div>
+
+      <div className="features flex flex-col gap-36 m-10 mt-5 p-20">
+        <div className="feature flex justify-evenly items-center gap-5">
+          <div className="feature-left">
+            <img className="w-[25vw] rounded-[40px] img-shadow" src="Hiring_Image.jpg" alt="" />
+          </div>
+
+          <div className="feature-right flex flex-col gap-4 justify-center">
+            <h2 className="font-bold text-3xl">Easy-To-Use & User-Friendly Platform</h2>
+            <p className="max-w-[35vw] text-center text-lg text-gray-500">No bloated UI or steep learning curves. The AIcruit platform is straightforward but effective; it is available to and pertinent to all recruiters and candidates.</p>
+          </div>
+        </div>
+
+        <div className="feature flex justify-evenly items-center gap-5">
+          <div className="feature-left flex flex-col gap-4 justify-center items-center">
+            <h2 className="font-bold text-3xl">AI-assisted Applicant Screening</h2>
+            <p className="max-w-[35vw] text-center text-lg text-gray-500">Use AI-powered resume screening tools to parse and evaluate candidate experience quickly. The website also offers AI-driven candidate recommendations. The website will leverage an AI-powered Recruitment Bot to improve hiring efficiency.</p>
+          </div>
+
+          <div className="feature-right">
+            <img className="w-[30vw] h-72 rounded-[40px] img-shadow" src="Hiring_Image_2.jpg" alt="" />
+          </div>
+        </div>
+
+        <div className="feature flex justify-evenly items-center gap-5">
+          <div className="feature-left">
+            <img className="w-[30vw] rounded-[40px] img-shadow" src="AI_Hiring_Images.jpg" alt="" />
+          </div>
+
+          <div className="feature-right flex flex-col gap-4 justify-center items-center">
+            <h2 className="font-bold text-3xl">Enhanced Interview Scheduling</h2>
+            <p className="max-w-[35vw] text-center text-lg text-gray-500">Our website offers automated interview scheduling, the bot automatically finds times suitable for both HR teams and candidates by connecting to Google Calendar and Microsoft Outlook. A considerably streamlined interview process will substantially reduce manual coordination. This will also minimize scheduling conflicts.</p>
+          </div>
+        </div>
+
+        <div className="feature flex justify-evenly items-center gap-5">
+          <div className="feature-left flex flex-col gap-4 justify-center items-center">
+            <h2 className="font-bold text-3xl">Hyper-Personalized Candidate Insights</h2>
+            <p className="max-w-[40vw] text-center text-lg text-gray-500">Use AI to generate detailed candidate insights beyond standard resume screening, such as:
+              Soft skills analysis based on resume language.
+              Predictive cultural fit using sentiment analysis and personality traits inferred from resumes or chatbot interactions.
+              Highlight growth potential by identifying transferable skills that candidates may not explicitly mention.</p>
+          </div>
+
+          <div className="feature-right">
+            <img className="w-[30vw] h-80 rounded-[40px] img-shadow" src="Candidate_Profile.jpg" alt="" />
+          </div>
+        </div>
+      </div>
+
+      <Footer/>
+
+
     </div>
   );
 }

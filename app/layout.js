@@ -37,7 +37,7 @@ export default function RootLayout({ children }) {
       <body className={`${poppins.variable} ${orbitron.variable} ${uncial_antiqua.variable} antialiased gradient`} >        
         <Navbar />
         {children}
-        <Footer />
+        {/* <Footer /> */}
       </body>
     </html>
   );

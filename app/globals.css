@@ -456,7 +456,7 @@ body {
   transform: translate3d(0px, 20px, 30px) perspective(80px) rotateX(-60deg) translateY(2px) translateZ(10px);
 }
 
-/* From Uiverse.io by alexruix */ 
+/* From Uiverse.io by alexruix */
 /* .group {
   display: flex;
   line-height: 28px;
@@ -492,7 +492,7 @@ body {
   height: 1rem;
 } */
 
-
-
-
-
+.img-shadow{
+  box-shadow: 15px 15px 30px #bebebe,
+             -15px -15px 30px #ffffff;
+}
