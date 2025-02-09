@@ -46,7 +46,9 @@ const Footer = () => {
                                     </button>
                                 </div>
                                 <div className="view-more">
-                                    <button className="view-more-button">View more</button>
+                                    <Link href={"/contact"}>
+                                        <button className="view-more-button">View more</button>
+                                    </Link>
                                     <svg className="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6"></path></svg>
                                 </div>
                             </div>
@@ -108,7 +110,7 @@ const Footer = () => {
                         </div>
                     </div>
 
-                    <p className='mt-[20px]'>AIcruit - Copyright &copy; 2025 | AI Mavericks</p>
+                    <p className='mt-[20px]'>AIcruit - Copyright &copy; 2025 | AI Mavericks | All rights reserved</p>
 
                 </div>
 
