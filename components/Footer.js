@@ -63,7 +63,7 @@ const Footer = () => {
                             <button className="flex items-center justify-center button btn-1">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
-                                    height="1em"
+                                    height="1.5em"
                                     viewBox="0 0 512 512"
                                     fill="#1e90ff"
                                 >
@@ -78,7 +78,7 @@ const Footer = () => {
                             <button className="flex items-center justify-center button btn-2">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
-                                    height="1em"
+                                    height="1.5em"
                                     viewBox="0 0 448 512"
                                     fill="#ff00ff"
                                 >
@@ -92,7 +92,7 @@ const Footer = () => {
                             <button onClick={() => window.open("https://github.com/UtkarshPushpankar", "_blank")} className="flex items-center justify-center button btn-3">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
-                                    height="1em"
+                                    height="1.5em"
                                     viewBox="0 0 496 512"
                                 >
                                     <path
