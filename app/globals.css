@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.light-gradient{
+  background-image: url("/public/light-theme_gradient.jpg");
+}
+
 body {
   font-family: var(--font-poppins);
 }
@@ -115,7 +119,7 @@ body {
 
 .glassy {
   backdrop-filter: blur(3px);
-  background-color: rgba(169, 169, 169, 0.3);
+  background-color: rgba(253, 253, 253, 0.3);
   /* border: 1.6px solid rgba(255, 255, 255, 0.125); */
   /* box-shadow: 0 0 2rem rgba(224, 224, 224, 0.2); */
 }

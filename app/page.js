@@ -1,9 +1,11 @@
 import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
 import Link from "next/link";
 
 export default function Home() {
   return (
     <div className="container h-screen">
+      <Navbar/>
       <div className="hero text-center m-10 mt-16">
         <div className="btn flex justify-center mb-10">
           <Link href={"#features"}>
