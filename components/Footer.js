@@ -22,7 +22,7 @@ const Footer = () => {
                                 </span>
 
                             </div>
-                            <div className="glass"></div>
+                            <div className="footer-glass"></div>
                             <div className="content">
                                 <span className="title">AIcruit</span>
                                 <span className="text">A common AI powered platform for Recruiters as well as Candidates</span>
