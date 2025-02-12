@@ -176,7 +176,7 @@ body {
   box-shadow: rgba(5, 71, 17, 0) 40px 50px 25px -40px, rgba(5, 71, 17, 0.2) 0px 25px 25px -5px;
 }
 
-.glass {
+.footer-glass {
   transform-style: preserve-3d;
   position: absolute;
   inset: 8px;
@@ -754,4 +754,159 @@ body {
 }
 .button:not(:last-child) {
   margin-bottom: 64px;
+}
+
+/* From Uiverse.io by codebykay101 */ 
+.about-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+
+.about-container .glass {
+  position: relative;
+  width: 300px;
+  height: 400px;
+  background: linear-gradient(#fff2, transparent);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 25px rgba(0, 0, 0, 0.25);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+  border-radius: 10px;
+  margin: 0 -45px;
+  backdrop-filter: blur(10px);
+  transform: rotate(calc(var(--r) * 1deg));
+}
+
+.about-container:hover .glass {
+  transform: rotate(0deg);
+  margin: 0 10px;
+}
+
+.about-container .glass::before {
+  content: attr(data-text);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.05);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff00;
+}
+.about-container .glass svg {
+  font-size: 2.5em;
+  fill: #fff;
+}
+
+
+.glass {
+  width: 20px;
+  height: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
+  color: white;
+  text-align: left;
+}
+
+.glass:hover {
+  transform: scale(1.05);
+}
+
+.glass_h {
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #2de24c;
+  margin-bottom: 10px;
+}
+.glass_p {
+  font-size: 1rem;
+  font-weight: bold;
+  color: rgb(19, 220, 19);
+  margin: 5px 0;
+}
+.glass_l {
+  font-size: 1rem;
+  font-weight:bold ;
+  color: rgb(47, 168, 47);
+  margin: 5px 0;
+}
+
+.about-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 50px;
+}
+
+
+
+/* From Uiverse.io by Pradeepsaranbishnoi */ 
+.social-links,.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-btn {
+  cursor: pointer;
+  height: 50px;
+  width: 50px;
+  font-family: 'Titillium Web', sans-serif;
+  color: #333;
+  border-radius: 10px;
+  box-shadow: 0px 10px 10px rgba(0,0,0,0.1);
+  background: white;
+  margin: 5px;
+  transition: 0.3s;
+  justify-content: center;
+}
+
+.social-btn svg {
+  height: 24px;
+  width: 24px;
+}
+
+.social-btn span {
+  width: 0px;
+  overflow: hidden;
+  transition: 0.3s;
+  text-align: center;
+  margin-left: 5px;
+}
+
+.social-btn:hover {
+  width: 150px;
+  border-radius: 5px;
+}
+
+.social-btn:hover span {
+  padding: 2px;
+  width: 80px;
+}
+
+#twitter svg {
+  fill: #1da1f2;
+}
+
+#linkedin svg {
+  fill: #0e76a8;
+}
+
+#github {
+  fill: #333;
 }
