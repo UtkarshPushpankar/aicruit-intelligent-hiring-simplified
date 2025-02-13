@@ -28,21 +28,21 @@ export default function Home() {
 
         </div> */}
 
-        <h1 className="text-5xl orbitron text-gradient max-w-[55vw] m-auto">Revolutionize Your Hiring Process with AIcruit</h1>
+        <h1 className="hero-text text-5xl orbitron text-gradient max-w-[55vw] m-auto">Revolutionize Your Hiring Process with AIcruit</h1>
 
 
-        <p className="max-w-[65vw] m-auto mt-5 text-lg poppins subtext-gradient">Experience the future of recruitment with AI-powered automation. From resume screening to candidate assessment, AIcruit makes hiring smarter, faster and more efficient</p>
+        <p className="hero-subtext max-w-[65vw] m-auto mt-5 text-lg poppins subtext-gradient">Experience the future of recruitment with AI-powered automation. From resume screening to candidate assessment, AIcruit makes hiring smarter, faster and more efficient</p>
 
         <div className="buttons flex justify-center mt-10 m-5">
           <Link href={"/about"}>
-            <button type="button" className="flex items-center gap-1 text-white bg-gradient-to-r from-teal-400 via-teal-500 to-teal-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-teal-300 dark:focus:ring-teal-800 font-medium rounded-lg text-base px-5 py-4 text-center me-2 mb-2 mr-3">
+            <button type="button" className="btn-learn flex items-center gap-1 text-white bg-gradient-to-r from-teal-400 via-teal-500 to-teal-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-teal-300 dark:focus:ring-teal-800 font-medium rounded-lg text-base px-5 py-4 text-center me-2 mb-2 mr-3">
               Learn more about us
               <span><img className="invert" width={20} src="arrow.png" alt="" /></span>
             </button>
           </Link>
 
           <Link href={"/login"}>
-            <button type="button" className="flex items-center gap-1 text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 font-medium rounded-lg text-base px-5 py-4 text-center me-2 mb-2 ml-3">
+            <button type="button" className="btn-start flex items-center gap-1 text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 font-medium rounded-lg text-base px-5 py-4 text-center me-2 mb-2 ml-3">
               Start Now
               <span><img width={20} src="arrow.png" alt="" /></span>
             </button>
@@ -82,7 +82,7 @@ export default function Home() {
               </svg>
             </button>
             <input
-              className="input w-[35vw] rounded-full px-8 py-3 border-2 border-transparent focus:outline-none focus:border-blue-500 placeholder-gray-400 transition-all duration-300 shadow-md"
+              className="search-bar input w-[35vw] rounded-full px-8 py-3 border-2 border-transparent focus:outline-none focus:border-blue-500 placeholder-gray-400 transition-all duration-300 shadow-md"
               placeholder="Search for Jobs/Candidates..."
               required=""
               type="text"

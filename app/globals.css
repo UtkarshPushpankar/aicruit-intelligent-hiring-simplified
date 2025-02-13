@@ -910,3 +910,64 @@ body {
 #github {
   fill: #333;
 }
+
+@media (max-width: 500px){
+  .hero{
+    margin: 0;
+    padding: 0;
+  }
+
+  .navbar{
+    max-width: 95vw;
+    font-size: 12px;
+    height: 8vh;
+    margin-bottom: 35px;
+  }
+
+  .logo-nav{
+    gap: 0;
+  }
+
+  .logo-nav img{
+    margin-left: 5px;
+  }
+
+  .menu-bar{
+    gap: 5px;
+  }
+
+  .links{
+    gap: 8px;
+  }
+
+  .btn-nav{
+    margin-right: 5px;
+  }
+
+  .hero-text{
+    max-width: 90vw;
+  }
+
+  .hero-subtext{
+    max-width: 90vw;
+  }
+
+  .btn-learn{
+    max-width: 40vw;
+    height: 70px;
+  }
+
+  .btn-start{
+    max-width: 40vw;
+    height: 70px;
+  }
+
+  .search-bar{
+    width: 70vw;
+  }
+
+  .features{
+    padding: 0;
+    margin: 25px;
+  }
+}
