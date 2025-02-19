@@ -6,7 +6,7 @@ const Form = () => {
   return (
     <StyledWrapper>
       <div className="container">
-        <div className="heading">Sign In</div>
+        <div className="heading">Sign In as HR</div>
         <form action={""} className="form">
           <input required className="input" type="email" name="email" id="email" placeholder="E-mail" />
           <input required className="input" type="password" name="password" id="password" placeholder="Password" />
