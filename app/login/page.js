@@ -9,8 +9,6 @@ const Login = () => {
   // false: HR login; true: Candidate login.
   const [isCandidate, setIsCandidate] = useState(false);
 
-
-
   const handleToggle = (e) => {
     setIsCandidate(e.target.checked);
   };
