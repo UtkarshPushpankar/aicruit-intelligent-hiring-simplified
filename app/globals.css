@@ -1012,3 +1012,28 @@ body {
   }
 
 }
+
+/* hrHome scrollbar */
+/* Transparent Scrollbar for Chrome, Safari, and Edge */
+.scrollbar-transparent::-webkit-scrollbar {
+  width: 8px; /* Adjust scrollbar width */
+  height: 8px; /* Adjust scrollbar height for horizontal scrollbars */
+}
+
+.scrollbar-transparent::-webkit-scrollbar-track {
+  background: transparent; /* Transparent track */
+}
+
+.scrollbar-transparent::-webkit-scrollbar-thumb {
+  background: transparent; /* Transparent thumb */
+  border-radius: 4px; /* Rounded corners */
+}
+
+.scrollbar-transparent::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.2); /* Slightly visible on hover */
+}
+
+/* Hide scrollbar for Firefox */
+.scrollbar-transparent {
+  scrollbar-width: none; /* Firefox */
+}
