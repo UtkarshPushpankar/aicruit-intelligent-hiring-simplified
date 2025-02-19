@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 const LoginNavbar = () => {
     return (
-        <nav className='border w-[35vw] m-auto border-gray-300 h-[9vh] rounded-xl mt-10 bg-white shadow-2xl navbar flex items-center justify-between p-5 pl-0'>
+        <nav className='login-navbar border max-w-[35vw] m-auto border-gray-300 h-[9vh] rounded-xl mt-10 bg-white shadow-2xl navbar flex gap-8 items-center justify-between p-5 pl-0'>
 
             <Link href={"/"}>
             <div className="logo-nav flex items-center gap-2">
@@ -17,7 +17,7 @@ const LoginNavbar = () => {
 
 
             <div className="menu-bar flex gap-8 items-center justify-between">
-                <div className="links flex gap-8 font-semibold">
+                <div className="links flex gap-4 font-semibold">
                     <Link href={"/"}>Home</Link>
                     <Link href={"/about"}>About</Link>
                     <Link href={"/contact"}>Contact</Link>

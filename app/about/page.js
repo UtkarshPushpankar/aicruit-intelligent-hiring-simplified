@@ -1,4 +1,5 @@
 import Navbar from '@/components/Navbar';
+import { Timeline } from '@/components/Timeline';
 import React from 'react';
 
 const GlassCard = ({ dataText, rotation, children }) => (
@@ -12,9 +13,9 @@ const teamMembers = [
     name: "Utkarsh Pushpankar",
     role: "Full Stack Developer and NLP Engineer",
     image: "utkarsh.jpg",
-    twitter: "https://x.com/U_Kshitij17",
-    linkedin: "https://www.linkedin.com/in/kshitij-upadhyay17?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
-    github: "https://github.com/ukshitij17"
+    twitter: "https://x.com/u_pushpankar",
+    linkedin: "https://www.linkedin.com/in/utkarsh-pushpankar-713b5328a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+    github: "https://github.com/UtkarshPushpankar"
   },
   {
     name: "Kshitij Upadhyay",
@@ -100,6 +101,8 @@ const About = () => {
             </ul>
           </div>
         </div>
+
+        {/* <Timeline/> */}
 
 
         <div className="us-container min-h-screen flex items-center justify-center p-10">
