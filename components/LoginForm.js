@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import styled from "styled-components";
 import { useSession, signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const LoginForm = () => {
   const { data: session } = useSession();
@@ -76,8 +77,11 @@ const LoginForm = () => {
             </button>
           </div>
         </div>
-        <span className="agreement">
-          <a href="#">Learn user license agreement</a>
+        <span className="text-sm text-gray-500 block text-center mt-[15px]">
+          Don't have an account - <Link className="text-black font-bold" href={"/signup"}>Sign Up</Link>
+        </span>
+        <span>
+          
         </span>
       </div>
     </StyledWrapper>

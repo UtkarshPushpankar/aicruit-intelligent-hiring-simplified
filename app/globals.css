@@ -42,12 +42,35 @@ body {
   background-size: 100% 100%;
 }
 
+.text-gradient-2{
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  background: linear-gradient(to right, rgb(5, 180, 255) 20%, darkblue 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 100% 100%;
+}
+
 .subtext-gradient {
   font-optical-sizing: auto;
   font-weight: 500;
   font-style: normal;
   /* background: linear-gradient(to right, rgb(216, 92, 113) 20%, rgb(67, 160, 197) 100%); */
   background: linear-gradient(to right, rgb(9, 139, 139) 20%, lime 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 100% 100%;
+}
+
+.subtext-gradient-2 {
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  /* background: linear-gradient(to right, rgb(216, 92, 113) 20%, rgb(67, 160, 197) 100%); */
+  background: linear-gradient(to right, rgb(0, 145, 255) 20%, rgb(7, 7, 201) 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
