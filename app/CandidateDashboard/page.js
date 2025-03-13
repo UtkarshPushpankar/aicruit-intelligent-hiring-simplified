@@ -26,7 +26,7 @@ const CandidateDashboard = () => {
       <div className="left w-[30vw] border-2 border-gray-400 rounded-lg h-[95.5vh] shadow-lg">
         {/* <button onClick={() => signOut()} type="button" class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Logout</button> */}
         <div className="profile m-6 mt-3 flex gap-5">
-          <img className='rounded-full' src={srcUserImage} alt="profile pic" />
+          <img width={100} height={50} className='rounded-full' src={srcUserImage} alt="profile pic" />
           <div className='flex flex-col gap-1 mt-1'>
             <h2 className='font-bold text-xl poppins text-gray-600'>{session?.user?.name}</h2>
 
