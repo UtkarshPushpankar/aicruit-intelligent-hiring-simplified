@@ -1,19 +1,32 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
 
 const RoleUpdationForm = () => {
   const router = useRouter();
+  const { data: session, status } = useSession();
 
-  // Create state for the form fields.
+  // Pre-populate fields with session values if available.
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
-    role: "", // will be either "candidate" or "hr"
-    companyName: "", // new field for HR only
+    role: "", // "candidate" or "hr"
+    companyName: "", // HR only
     bio: ""
   });
   const [error, setError] = useState(null);
+
+  // If session is loaded, update default values
+  useEffect(() => {
+    if (session) {
+      setFormData((prev) => ({
+        ...prev,
+        fullName: session.user.name || "",
+        email: session.user.email || ""
+      }));
+    }
+  }, [session]);
 
   // Generic change handler for all form inputs.
   const handleChange = (e) => {
@@ -23,13 +36,19 @@ const RoleUpdationForm = () => {
   // Handle form submission.
   const handleSubmit = async (e) => {
     e.preventDefault();
+    // Make sure we have session information.
+    if (!session) {
+      setError("User session not found. Please log in again.");
+      return;
+    }
+
     try {
+      // Include the user ID from session in the payload.
+      const payload = { userId: session.user.id, ...formData };
       const res = await fetch("/api/set-role", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(formData)
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
       });
       if (!res.ok) {
         throw new Error("Failed to update role");
@@ -48,6 +67,10 @@ const RoleUpdationForm = () => {
       setError(err.message);
     }
   };
+
+  if (status === "loading") {
+    return <p>Loading profile...</p>;
+  }
 
   return (
     <div className="max-w-md mx-auto relative overflow-hidden z-10 bg-gray-800 p-8 rounded-lg shadow-md">
@@ -86,7 +109,6 @@ const RoleUpdationForm = () => {
           <label htmlFor="role" className="block text-sm font-medium text-gray-300">
             User Type <span className="text-gray-400">(Candidate or HR)</span>
           </label>
-          {/* Use a select for role selection */}
           <select
             name="role"
             id="role"
@@ -100,7 +122,6 @@ const RoleUpdationForm = () => {
             <option value="hr">HR</option>
           </select>
         </div>
-        {/* Conditionally render Company Name for HR */}
         {formData.role === "hr" && (
           <div className="mb-4">
             <label htmlFor="companyName" className="block text-sm font-medium text-gray-300">

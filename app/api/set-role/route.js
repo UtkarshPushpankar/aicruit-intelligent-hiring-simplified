@@ -1,14 +1,29 @@
 import { NextResponse } from "next/server";
+import connectDb from "@/db/connectDb";
+import User from "@/models/User";
 
 export async function POST(request) {
-  // Parse the incoming JSON data
+  await connectDb();
   const body = await request.json();
-  const { role, fullName, email, bio, companyName } = body;
-  
-  // TODO: Update the user record in your database.
-  // For HR users, you might update their company name along with other details.
-  // For demonstration, we assume the update is successful.
+  const { userId, role, fullName, email, bio, companyName } = body;
 
-  // Return a JSON response with the role (or any other info if needed)
-  return NextResponse.json({ role });
+  if (!userId || !role) {
+    return NextResponse.json(
+      { error: "Missing required fields" },
+      { status: 400 }
+    );
+  }
+
+  try {
+    // Prepare the update data
+    const updateData = { role, bio, fullName, email };
+    if (role === "hr") {
+      updateData.companyName = companyName;
+    }
+    // Update the user record
+    const updated = await User.findByIdAndUpdate(userId, updateData, { new: true });
+    return NextResponse.json({ message: "Profile updated", role: updated.role });
+  } catch (err) {
+    return NextResponse.json({ error: err.message }, { status: 500 });
+  }
 }

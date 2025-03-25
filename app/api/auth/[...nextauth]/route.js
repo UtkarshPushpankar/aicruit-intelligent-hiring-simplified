@@ -1,36 +1,74 @@
-import NextAuth from 'next-auth'
-import AppleProvider from 'next-auth/providers/apple'
-import FacebookProvider from 'next-auth/providers/facebook'
-import GoogleProvider from 'next-auth/providers/google'
-import EmailProvider from 'next-auth/providers/email'
+import NextAuth from "next-auth";
+import CredentialsProvider from "next-auth/providers/credentials";
+import GoogleProvider from "next-auth/providers/google";
 import GitHubProvider from "next-auth/providers/github";
+import connectDb from "@/db/connectDb";
+import User from "@/models/User";
+import bcrypt from "bcryptjs";
 
-export const authoptions = NextAuth({
+export const authOptions = {
   providers: [
-    // OAuth authentication providers...
-    GitHubProvider({
-        clientId: process.env.GITHUB_ID,
-        clientSecret: process.env.GITHUB_SECRET
-      }),
-    // AppleProvider({
-    //   clientId: process.env.APPLE_ID,
-    //   clientSecret: process.env.APPLE_SECRET
-    // }),
-    // FacebookProvider({
-    //   clientId: process.env.FACEBOOK_ID,
-    //   clientSecret: process.env.FACEBOOK_SECRET
-    // }),
-    GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET
+    CredentialsProvider({
+      name: "Credentials",
+      credentials: {
+        email: { label: "Email", type: "email", placeholder: "user@example.com" },
+        password: { label: "Password", type: "password" }
+      },
+      async authorize(credentials) {
+        await connectDb();
+        const { email, password } = credentials;
+        // Find user by email in the unified User collection
+        const user = await User.findOne({ email });
+        if (!user) {
+          throw new Error("User not found");
+        }
+        // Validate password using bcrypt
+        const isValid = await bcrypt.compare(password, user.password);
+        if (!isValid) {
+          throw new Error("Invalid credentials");
+        }
+        return { id: user._id.toString(), email: user.email, name: user.name };
+      }
     }),
-    // // Passwordless / email sign in
-    // EmailProvider({
-    //   server: process.env.MAIL_SERVER,
-    //   from: 'NextAuth.js <no-reply@example.com>'
-    // }),
+    // Google OAuth Provider
+    GoogleProvider({
+      clientId: process.env.GOOGLE_ID,
+      clientSecret: process.env.GOOGLE_SECRET
+    }),
+    // GitHub OAuth Provider
+    GitHubProvider({
+      clientId: process.env.GITHUB_ID,
+      clientSecret: process.env.GITHUB_SECRET
+    })
   ],
   secret: process.env.NEXTAUTH_SECRET,
-})
+  session: { strategy: "jwt" },
+  callbacks: {
+    async jwt({ token, account, profile }) {
+      await connectDb();
+      // Handle OAuth logins on first sign in:
+      if (account && profile) {
+        token.provider = account.provider;
+        // Look for an existing user by email
+        let user = await User.findOne({ email: profile.email });
+        if (!user) {
+          // If no user exists, create a new user record
+          user = await User.create({
+            name: profile.name || profile.login,
+            email: profile.email,
+            provider: account.provider
+          });
+        }
+        token.id = user._id.toString();
+      }
+      return token;
+    },
+    async session({ session, token }) {
+      session.user.id = token.id;
+      session.user.provider = token.provider;
+      return session;
+    }
+  }
+};
 
-export { authoptions as GET, authoptions as POST}
+export default NextAuth(authOptions);
