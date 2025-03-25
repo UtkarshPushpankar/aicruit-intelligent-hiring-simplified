@@ -32,8 +32,8 @@ export const authOptions = {
     }),
     // Google OAuth Provider
     GoogleProvider({
-      clientId: process.env.GOOGLE_ID,
-      clientSecret: process.env.GOOGLE_SECRET
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET
     }),
     // GitHub OAuth Provider
     GitHubProvider({
