@@ -17,17 +17,25 @@ export const authOptions = {
       async authorize(credentials) {
         await connectDb();
         const { email, password } = credentials;
-        // Find user by email in the unified User collection
+
+        // 1. Find user by email
         const user = await User.findOne({ email });
         if (!user) {
           throw new Error("User not found");
         }
-        // Validate password using bcrypt
+
+        // 2. Validate password
         const isValid = await bcrypt.compare(password, user.password);
         if (!isValid) {
           throw new Error("Invalid credentials");
         }
-        return { id: user._id.toString(), email: user.email, name: user.name };
+
+        // 3. Return a minimal user object with the _id as 'id'
+        return {
+          id: user._id.toString(),
+          email: user.email,
+          name: user.name
+        };
       }
     }),
     // Google OAuth Provider
@@ -44,26 +52,37 @@ export const authOptions = {
   secret: process.env.NEXTAUTH_SECRET,
   session: { strategy: "jwt" },
   callbacks: {
-    async jwt({ token, account, profile }) {
+    async jwt({ token, user, account, profile }) {
       await connectDb();
-      // Handle OAuth logins on first sign in:
+
+      // If we have a user object, this is either credentials login
+      // or the first OAuth login. Attach user.id to the token.
+      if (user) {
+        token.id = user.id; // from credentials
+        token.name = user.name || token.name; // keep or override name if needed
+        token.email = user.email || token.email;
+      }
+
+      // Handle OAuth logins on first sign in
       if (account && profile) {
         token.provider = account.provider;
         // Look for an existing user by email
-        let user = await User.findOne({ email: profile.email });
-        if (!user) {
+        let existingUser = await User.findOne({ email: profile.email });
+        if (!existingUser) {
           // If no user exists, create a new user record
-          user = await User.create({
+          existingUser = await User.create({
             name: profile.name || profile.login,
             email: profile.email,
             provider: account.provider
           });
         }
-        token.id = user._id.toString();
+        token.id = existingUser._id.toString();
       }
+
       return token;
     },
     async session({ session, token }) {
+      // Attach the token’s id and provider to session.user
       session.user.id = token.id;
       session.user.provider = token.provider;
       return session;
