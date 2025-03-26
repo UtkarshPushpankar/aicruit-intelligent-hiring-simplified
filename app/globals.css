@@ -53,6 +53,17 @@ body {
   background-size: 100% 100%;
 }
 
+.text-gradient-3{
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  background: linear-gradient(to right, darkblue 20%, rgb(5, 180, 255) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 100% 100%;
+}
+
 .subtext-gradient {
   font-optical-sizing: auto;
   font-weight: 500;
