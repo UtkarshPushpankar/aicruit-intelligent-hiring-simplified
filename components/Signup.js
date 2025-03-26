@@ -1,7 +1,7 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { useSession, signIn } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
@@ -9,24 +9,62 @@ const Signup = () => {
   const { data: session } = useSession();
   const router = useRouter();
 
+  // If a session exists, redirect to the dashboard.
   useEffect(() => {
     if (session) {
       router.push("/dashboard");
     }
   }, [session, router]);
 
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: ""
+  });
+  const [error, setError] = useState(null);
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  // Handle form submission
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError(null);
+    try {
+      const res = await fetch("/api/signup", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData)
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setError(data.error || "Something went wrong. Please try again.");
+      } else {
+        // After successful signup, redirect to the login page.
+        router.push("/login");
+      }
+    } catch (err) {
+      console.error(err);
+      setError(err.message);
+    }
+  };
+
   return (
     <StyledWrapper>
       <div className="container">
         <div className="heading">Sign Up</div>
-        <form className="form">
+        {error && <p className="error">{error}</p>}
+        <form className="form" onSubmit={handleSubmit}>
           <input
             required
             className="input"
-            type="name"
+            type="text"
             name="name"
             id="name"
             placeholder="Name"
+            value={formData.name}
+            onChange={handleChange}
           />
           <input
             required
@@ -35,6 +73,8 @@ const Signup = () => {
             name="email"
             id="email"
             placeholder="E-mail"
+            value={formData.email}
+            onChange={handleChange}
           />
           <input
             required
@@ -43,32 +83,21 @@ const Signup = () => {
             name="password"
             id="password"
             placeholder="Password"
+            value={formData.password}
+            onChange={handleChange}
           />
-          <input className="login-button" type="submit" value="Sign In" />
+          <input className="login-button" type="submit" value="Sign Up" />
         </form>
         <div className="social-account-container">
           <span className="title">Or Sign in with</span>
           <div className="social-accounts">
-            <button
-              onClick={() => signIn("google")}
-              className="social-button google"
-            >
-              <svg
-                className="svg"
-                xmlns="http://www.w3.org/2000/svg"
-                height="1em"
-                viewBox="0 0 488 512"
-              >
+            <button onClick={() => signIn("google")} className="social-button google">
+              <svg className="svg" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 488 512">
                 <path d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z" />
               </svg>
             </button>
             <button onClick={() => signIn("github")} className="social-button github">
-              <svg
-                className="svg"
-                xmlns="http://www.w3.org/2000/svg"
-                height="1em"
-                viewBox="0 0 512 512"
-              >
+              <svg className="svg" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
                 <path d="M256,32C132.3,32,32,133,32,256c0,101.7,66,187.8,157.3,218.2
                         c11.5,2.1,15.7-5,15.7-11.1c0-5.5-0.2-20.2-0.3-39.6c-64,13.9-77.5-30.8-77.5-30.8
                         c-10.4-26.5-25.4-33.5-25.4-33.5c-20.8-14.2,1.6-13.9,1.6-13.9c23,1.6,35.1,23.6,35.1,23.6
@@ -85,14 +114,10 @@ const Signup = () => {
         <span className="text-sm text-gray-500 block text-center mt-[15px]">
           Already have an account - <Link className="text-black font-bold" href={"/login"}>Sign In</Link>
         </span>
-        <span>
-          
-        </span>
       </div>
     </StyledWrapper>
   );
 };
-
 
 const StyledWrapper = styled.div`
   .container {
@@ -105,18 +130,15 @@ const StyledWrapper = styled.div`
     box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 30px 30px -20px;
     margin: 20px;
   }
-
   .heading {
     text-align: center;
     font-weight: 900;
     font-size: 30px;
     color: rgb(16, 137, 211);
   }
-
   .form {
     margin-top: 20px;
   }
-
   .form .input {
     width: 100%;
     background: white;
@@ -127,32 +149,26 @@ const StyledWrapper = styled.div`
     box-shadow: #cff0ff 0px 10px 10px -5px;
     border-inline: 2px solid transparent;
   }
-
   .form .input::-moz-placeholder {
     color: rgb(170, 170, 170);
   }
-
   .form .input::placeholder {
     color: rgb(170, 170, 170);
   }
-
   .form .input:focus {
     outline: none;
     border-inline: 2px solid #12B1D1;
   }
-
   .form .forgot-password {
     display: block;
     margin-top: 10px;
     margin-left: 10px;
   }
-
   .form .forgot-password a {
     font-size: 11px;
     color: #0099ff;
     text-decoration: none;
   }
-
   .form .login-button {
     display: block;
     width: 100%;
@@ -166,28 +182,23 @@ const StyledWrapper = styled.div`
     border: none;
     transition: all 0.2s ease-in-out;
   }
-
   .form .login-button:hover {
     transform: scale(1.03);
     box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 23px 10px -20px;
   }
-
   .form .login-button:active {
     transform: scale(0.95);
     box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 15px 10px -10px;
   }
-
   .social-account-container {
     margin-top: 25px;
   }
-
   .social-account-container .title {
     display: block;
     text-align: center;
     font-size: 10px;
     color: rgb(170, 170, 170);
   }
-
   .social-account-container .social-accounts {
     width: 100%;
     display: flex;
@@ -195,7 +206,6 @@ const StyledWrapper = styled.div`
     gap: 15px;
     margin-top: 5px;
   }
-
   .social-account-container .social-accounts .social-button {
     background: linear-gradient(45deg, rgb(0, 0, 0) 0%, rgb(112, 112, 112) 100%);
     border: 5px solid white;
@@ -208,30 +218,26 @@ const StyledWrapper = styled.div`
     box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 12px 10px -8px;
     transition: all 0.2s ease-in-out;
   }
-
   .social-account-container .social-accounts .social-button .svg {
     fill: white;
     margin: auto;
   }
-
   .social-account-container .social-accounts .social-button:hover {
     transform: scale(1.2);
   }
-
   .social-account-container .social-accounts .social-button:active {
     transform: scale(0.9);
   }
-
   .agreement {
     display: block;
     text-align: center;
     margin-top: 15px;
   }
-
   .agreement a {
     text-decoration: none;
     color: #0099ff;
     font-size: 9px;
-  }`;
+  }
+`;
 
 export default Signup;

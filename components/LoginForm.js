@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useSession, signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
@@ -8,6 +8,8 @@ import Link from "next/link";
 const LoginForm = () => {
   const { data: session } = useSession();
   const router = useRouter();
+  const [formData, setFormData] = useState({ email: "", password: "" });
+  const [error, setError] = useState("");
 
   useEffect(() => {
     if (session) {
@@ -15,11 +17,41 @@ const LoginForm = () => {
     }
   }, [session, router]);
 
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!formData.email || !formData.password) {
+      setError("Both fields are required!");
+      return;
+    }
+
+    try {
+      const result = await signIn("credentials", {
+        redirect: false,
+        email: formData.email,
+        password: formData.password,
+      });
+
+      if (result.error) {
+        setError("Invalid email or password!");
+      } else {
+        router.push("/dashboard");
+      }
+    } catch (error) {
+      setError("Something went wrong. Please try again!");
+    }
+  };
+
   return (
     <StyledWrapper>
       <div className="container">
         <div className="heading">Sign In</div>
-        <form className="form">
+        {error && <p className="error-message">{error}</p>}
+        <form className="form" onSubmit={handleSubmit}>
           <input
             required
             className="input"
@@ -27,6 +59,8 @@ const LoginForm = () => {
             name="email"
             id="email"
             placeholder="E-mail"
+            value={formData.email}
+            onChange={handleChange}
           />
           <input
             required
@@ -35,6 +69,8 @@ const LoginForm = () => {
             name="password"
             id="password"
             placeholder="Password"
+            value={formData.password}
+            onChange={handleChange}
           />
           <span className="forgot-password">
             <a href="#">Forgot Password?</a>
@@ -44,10 +80,7 @@ const LoginForm = () => {
         <div className="social-account-container">
           <span className="title">Or Sign in with</span>
           <div className="social-accounts">
-            <button
-              onClick={() => signIn("google")}
-              className="social-button google"
-            >
+            <button onClick={() => signIn("google")} className="social-button google">
               <svg
                 className="svg"
                 xmlns="http://www.w3.org/2000/svg"
@@ -80,14 +113,10 @@ const LoginForm = () => {
         <span className="text-sm text-gray-500 block text-center mt-[15px]">
           Don't have an account - <Link className="text-black font-bold" href={"/signup"}>Sign Up</Link>
         </span>
-        <span>
-          
-        </span>
       </div>
     </StyledWrapper>
   );
 };
-
 
 const StyledWrapper = styled.div`
   .container {
