@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-.light-gradient{
+.light-gradient {
   background-image: url("/public/light-theme_gradient.jpg");
 }
 
@@ -27,7 +27,12 @@ body {
   background-image: linear-gradient(90deg, #FFDEE9 0%, #B5FFFC 100%);
 }
 
-.dashboard-grad{
+/* .gradient {
+  background-color: #8EC5FC;
+  background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+} */
+
+.dashboard-grad {
   background-color: black;
 }
 
@@ -42,7 +47,7 @@ body {
   background-size: 100% 100%;
 }
 
-.text-gradient-2{
+.text-gradient-2 {
   font-optical-sizing: auto;
   font-weight: 500;
   font-style: normal;
@@ -53,7 +58,7 @@ body {
   background-size: 100% 100%;
 }
 
-.text-gradient-3{
+.text-gradient-3 {
   font-optical-sizing: auto;
   font-weight: 500;
   font-style: normal;
@@ -160,6 +165,13 @@ body {
   background-color: rgba(253, 253, 253, 0.3);
   /* border: 1.6px solid rgba(255, 255, 255, 0.125); */
   /* box-shadow: 0 0 2rem rgba(224, 224, 224, 0.2); */
+}
+
+.glossy-orange {
+  background-color: rgba(248, 172, 85, 0.67); 
+  backdrop-filter: blur(3px);
+  animation: glow 2s infinite;
+  --glow-color: rgba(234, 179, 8, 0.5);
 }
 
 .btn {
@@ -534,24 +546,27 @@ body {
   height: 1rem;
 } */
 
-.img-shadow{
+.img-shadow {
   box-shadow: 15px 15px 30px #bebebe,
-             -15px -15px 30px #ffffff;
+    -15px -15px 30px #ffffff;
 }
 
-/* From Uiverse.io by himanshu9682 */ 
+/* From Uiverse.io by himanshu9682 */
 .type--A {
   --line_color: #555555;
   --back_color: #ffecf6;
 }
+
 .type--B {
   --line_color: #1b1919;
   --back_color: #e9ecff;
 }
+
 .type--C {
   --line_color: #00135c;
   --back_color: #defffa;
 }
+
 .button {
   position: relative;
   z-index: 0;
@@ -564,6 +579,7 @@ body {
   letter-spacing: 2px;
   transition: all 0.3s ease;
 }
+
 .button__text {
   display: flex;
   justify-content: center;
@@ -571,6 +587,7 @@ body {
   width: 100%;
   height: 100%;
 }
+
 .button::before,
 .button::after,
 .button__text::before,
@@ -582,26 +599,31 @@ body {
   background: var(--line_color);
   transition: all 0.5s ease;
 }
+
 .button::before {
   top: 0;
   left: 54px;
   width: calc(100% - 56px * 2 - 16px);
 }
+
 .button::after {
   top: 0;
   right: 54px;
   width: 8px;
 }
+
 .button__text::before {
   bottom: 0;
   right: 54px;
   width: calc(100% - 56px * 2 - 16px);
 }
+
 .button__text::after {
   bottom: 0;
   left: 54px;
   width: 8px;
 }
+
 .button__line {
   position: absolute;
   top: 0;
@@ -609,6 +631,7 @@ body {
   height: 100%;
   overflow: hidden;
 }
+
 .button__line::before {
   content: "";
   position: absolute;
@@ -619,25 +642,31 @@ body {
   border-radius: 300px;
   border: solid 3px var(--line_color);
 }
+
 .button__line:nth-child(1),
 .button__line:nth-child(1)::before {
   left: 0;
 }
+
 .button__line:nth-child(2),
 .button__line:nth-child(2)::before {
   right: 0;
 }
+
 .button:hover {
   letter-spacing: 6px;
 }
+
 .button:hover::before,
 .button:hover .button__text::before {
   width: 8px;
 }
+
 .button:hover::after,
 .button:hover .button__text::after {
   width: calc(100% - 56px * 2 - 16px);
 }
+
 .button__drow1,
 .button__drow2 {
   position: absolute;
@@ -645,6 +674,7 @@ body {
   border-radius: 16px;
   transform-origin: 16px 16px;
 }
+
 .button__drow1 {
   top: -16px;
   left: 40px;
@@ -652,6 +682,7 @@ body {
   height: 0;
   transform: rotate(30deg);
 }
+
 .button__drow2 {
   top: 44px;
   left: 77px;
@@ -659,6 +690,7 @@ body {
   height: 0;
   transform: rotate(-127deg);
 }
+
 .button__drow1::before,
 .button__drow1::after,
 .button__drow2::before,
@@ -666,6 +698,7 @@ body {
   content: "";
   position: absolute;
 }
+
 .button__drow1::before {
   bottom: 0;
   left: 0;
@@ -675,6 +708,7 @@ body {
   transform-origin: 16px 16px;
   transform: rotate(-60deg);
 }
+
 .button__drow1::after {
   top: -10px;
   left: 45px;
@@ -684,6 +718,7 @@ body {
   transform-origin: 16px 16px;
   transform: rotate(69deg);
 }
+
 .button__drow2::before {
   bottom: 0;
   left: 0;
@@ -693,6 +728,7 @@ body {
   transform-origin: 16px 16px;
   transform: rotate(-146deg);
 }
+
 .button__drow2::after {
   bottom: 26px;
   left: -40px;
@@ -702,6 +738,7 @@ body {
   transform-origin: 16px 16px;
   transform: rotate(-262deg);
 }
+
 .button__drow1,
 .button__drow1::before,
 .button__drow1::after,
@@ -710,73 +747,91 @@ body {
 .button__drow2::after {
   background: var(--back_color);
 }
+
 .button:hover .button__drow1 {
   animation: drow1 ease-in 0.06s;
   animation-fill-mode: forwards;
 }
+
 .button:hover .button__drow1::before {
   animation: drow2 linear 0.08s 0.06s;
   animation-fill-mode: forwards;
 }
+
 .button:hover .button__drow1::after {
   animation: drow3 linear 0.03s 0.14s;
   animation-fill-mode: forwards;
 }
+
 .button:hover .button__drow2 {
   animation: drow4 linear 0.06s 0.2s;
   animation-fill-mode: forwards;
 }
+
 .button:hover .button__drow2::before {
   animation: drow3 linear 0.03s 0.26s;
   animation-fill-mode: forwards;
 }
+
 .button:hover .button__drow2::after {
   animation: drow5 linear 0.06s 0.32s;
   animation-fill-mode: forwards;
 }
+
 @keyframes drow1 {
   0% {
     height: 0;
   }
+
   100% {
     height: 100px;
   }
 }
+
 @keyframes drow2 {
   0% {
     width: 0;
     opacity: 0;
   }
+
   10% {
     opacity: 0;
   }
+
   11% {
     opacity: 1;
   }
+
   100% {
     width: 120px;
   }
 }
+
 @keyframes drow3 {
   0% {
     width: 0;
   }
+
   100% {
     width: 80px;
   }
 }
+
 @keyframes drow4 {
   0% {
     height: 0;
   }
+
   100% {
     height: 120px;
   }
 }
+
 @keyframes drow5 {
   0% {
     width: 0;
   }
+
   100% {
     width: 124px;
   }
@@ -790,11 +845,12 @@ body {
   justify-content: center;
   align-items: center;
 }
+
 .button:not(:last-child) {
   margin-bottom: 64px;
 }
 
-/* From Uiverse.io by codebykay101 */ 
+/* From Uiverse.io by codebykay101 */
 .about-container {
   display: flex;
   gap: 20px;
@@ -838,6 +894,7 @@ body {
   align-items: center;
   color: #ffffff00;
 }
+
 .about-container .glass svg {
   font-size: 2.5em;
   fill: #fff;
@@ -870,15 +927,17 @@ body {
   color: #2de24c;
   margin-bottom: 10px;
 }
+
 .glass_p {
   font-size: 1rem;
   font-weight: bold;
   color: rgb(19, 220, 19);
   margin: 5px 0;
 }
+
 .glass_l {
   font-size: 1rem;
-  font-weight:bold ;
+  font-weight: bold;
   color: rgb(47, 168, 47);
   margin: 5px 0;
 }
@@ -893,8 +952,9 @@ body {
 
 
 
-/* From Uiverse.io by Pradeepsaranbishnoi */ 
-.social-links,.flex-center {
+/* From Uiverse.io by Pradeepsaranbishnoi */
+.social-links,
+.flex-center {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -907,7 +967,7 @@ body {
   font-family: 'Titillium Web', sans-serif;
   color: #333;
   border-radius: 10px;
-  box-shadow: 0px 10px 10px rgba(0,0,0,0.1);
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
   background: white;
   margin: 5px;
   transition: 0.3s;
@@ -949,20 +1009,20 @@ body {
   fill: #333;
 }
 
-@media (max-width: 500px){
-  .hero{
+@media (max-width: 500px) {
+  .hero {
     margin: 0;
     padding: 0;
   }
 
-  .navbar{
+  .navbar {
     max-width: 95vw;
     font-size: 12px;
     height: 8vh;
     margin-bottom: 35px;
   }
 
-  .login-navbar{
+  .login-navbar {
     max-width: 95vw;
     font-size: 12px;
     height: 8vh;
@@ -973,49 +1033,49 @@ body {
     gap: 50px;
   }
 
-  .logo-nav{
+  .logo-nav {
     gap: 0;
   }
 
-  .logo-nav img{
+  .logo-nav img {
     margin-left: 5px;
   }
 
-  .menu-bar{
+  .menu-bar {
     gap: 5px;
   }
 
-  .links{
+  .links {
     gap: 8px;
   }
 
-  .btn-nav{
+  .btn-nav {
     margin-right: 5px;
   }
 
-  .hero-text{
+  .hero-text {
     max-width: 90vw;
   }
 
-  .hero-subtext{
+  .hero-subtext {
     max-width: 90vw;
   }
 
-  .btn-learn{
+  .btn-learn {
     max-width: 40vw;
     height: 70px;
   }
 
-  .btn-start{
+  .btn-start {
     max-width: 40vw;
     height: 70px;
   }
 
-  .search-bar{
+  .search-bar {
     width: 70vw;
   }
 
-  .features{
+  .features {
     padding: 0;
     margin: 25px;
     margin-top: 80px;
@@ -1023,28 +1083,28 @@ body {
     gap: 20px;
   }
 
-  .feature{
+  .feature {
     flex-direction: column;
     border: 2px solid #d1d5db;
     border-radius: 22px;
     padding: 30px;
   }
 
-  .feature h2{
+  .feature h2 {
     text-align: center;
   }
 
-  .feature p{
+  .feature p {
     max-width: fit-content;
     text-align: center;
     margin: auto;
   }
 
-  .feature img{
+  .feature img {
     width: fit-content;
   }
 
-  .about-grid{
+  .about-grid {
     margin-top: 80px;
     flex-direction: column;
   }
@@ -1054,32 +1114,40 @@ body {
 /* hrHome scrollbar */
 /* Transparent Scrollbar for Chrome, Safari, and Edge */
 .scrollbar-transparent::-webkit-scrollbar {
-  width: 8px; /* Adjust scrollbar width */
-  height: 8px; /* Adjust scrollbar height for horizontal scrollbars */
+  width: 8px;
+  /* Adjust scrollbar width */
+  height: 8px;
+  /* Adjust scrollbar height for horizontal scrollbars */
 }
 
 .scrollbar-transparent::-webkit-scrollbar-track {
-  background: transparent; /* Transparent track */
+  background: transparent;
+  /* Transparent track */
 }
 
 .scrollbar-transparent::-webkit-scrollbar-thumb {
-  background: transparent; /* Transparent thumb */
-  border-radius: 4px; /* Rounded corners */
+  background: transparent;
+  /* Transparent thumb */
+  border-radius: 4px;
+  /* Rounded corners */
 }
 
 .scrollbar-transparent::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 0, 0, 0.2); /* Slightly visible on hover */
+  background: rgba(0, 0, 0, 0.2);
+  /* Slightly visible on hover */
 }
 
 /* Hide scrollbar for Firefox */
 .scrollbar-transparent {
-  scrollbar-width: none; /* Firefox */
+  scrollbar-width: none;
+  /* Firefox */
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
