@@ -104,100 +104,112 @@ const CandidateDashboard = () => {
             </div>
           </div>
         </div>
-        <div className="dashboard">
-          <h1 className='poppins text-xl m-6 ml-10 mt-3 mb-2'>Dashboard</h1>
-          <div className="dashboard-cards poppins flex gap-4 m-4 ml-0 mt-0">
-            <div className="dashboard-card flex flex-col gap-1 border-2 rounded-xl ml-10 p-3 mt-0 bg-orange-100/70 backdrop-blur-lg shadow-md w-[200px] h-[110px]">
-              <div>Total Applications</div>
-              <div className='text-3xl'>24</div>
-              <div className='text-sm text-red-500'>6 in Progress</div>
+
+        <div className="dashboard flex gap-2">
+          <div className="dashboard-mid w-[700px]">
+            <h1 className='poppins text-xl m-6 ml-10 mt-3 mb-2'>Dashboard</h1>
+            <div className="dashboard-cards poppins flex gap-4 m-4 ml-0 mt-0">
+              <div className="dashboard-card flex flex-col gap-1 border-2 rounded-xl ml-10 p-3 mt-0 bg-orange-100/70 backdrop-blur-lg shadow-md w-[200px] h-[110px]">
+                <div>Total Applications</div>
+                <div className='text-3xl'>24</div>
+                <div className='text-sm text-red-500'>6 in Progress</div>
+              </div>
+
+              <div className="dashboard-card flex flex-col gap-1 border-2 rounded-xl mt-0 p-3 bg-blue-100/70 backdrop-blur-lg shadow-md w-[200px] h-[110px]">
+                <div>Active Interviews</div>
+                <div className='text-3xl'>10</div>
+                <div className='text-sm text-blue-500'>2 Upcoming Interviews</div>
+              </div>
+
+              <div className="dashboard-card flex flex-col gap-1 border-2 rounded-xl mt-0 p-3 bg-pink-100/70 backdrop-blur-lg shadow-md w-[200px] h-[110px]">
+                <div>Recommended Jobs</div>
+                <div className='text-3xl'>12</div>
+                <div className='text-sm text-pink-500'>5 Actively Hiring</div>
+              </div>
             </div>
 
-            <div className="dashboard-card flex flex-col gap-1 border-2 rounded-xl mt-0 p-3 bg-blue-100/70 backdrop-blur-lg shadow-md w-[200px] h-[110px]">
-              <div>Active Interviews</div>
-              <div className='text-3xl'>10</div>
-              <div className='text-sm text-blue-500'>2 Upcoming Interviews</div>
+            <div className="graph-cards m-4 ml-10 mt-0 flex gap-7 poppins">
+              <div className="graph-card flex flex-col gap-2 justify-center w-[300px] h-[130px] border-2 rounded-xl border-gray-300 p-3">
+                <div className="graph-container flex justify-between items-center">
+                  <div className="graph-text flex flex-col gap-1">
+                    <div>Profile Views</div>
+                    <div className='text-3xl'>80</div>
+                  </div>
+
+                  <div className="sparkline">
+                    <SparklineChart data={monthlyTrend} color="#FF6F61" />
+                  </div>
+                </div>
+
+                <div className="graph-content flex items-center justify-between text-sm">
+                  <div className='text-gray-500'>2 Messages</div>
+                  <div className='bg-blue-100/90 text-xs rounded-lg p-3 pt-1 pb-1 backdrop-blur-lg'>+5% Past week</div>
+                </div>
+              </div>
+
+              <div className="graph-card flex flex-col gap-2 justify-center w-[300px] h-[130px] border-2 rounded-xl border-gray-300 p-3">
+                <div className="graph-container flex items-center justify-between">
+                  <div className="graph-text flex flex-col gap-1">
+                    <div>Application Success Rate</div>
+                    <div className='text-3xl'>30%</div>
+                  </div>
+
+                  <div className="sparkline">
+                    <SparklineChart data={monthlyTrend} color="#FF6F61" />
+                  </div>
+                </div>
+
+                <div className="graph-content flex items-center justify-between text-sm">
+                  <div className='text-gray-500'>3 Interviews out of 10</div>
+                  <div className='bg-blue-100/90 text-xs rounded-lg p-3 pt-1 pb-1 backdrop-blur-lg'>+10% Past month</div>
+                </div>
+              </div>
             </div>
 
-            <div className="dashboard-card flex flex-col gap-1 border-2 rounded-xl mt-0 p-3 bg-pink-100/70 backdrop-blur-lg shadow-md w-[200px] h-[110px]">
-              <div>Recommended Jobs</div>
-              <div className='text-3xl'>12</div>
-              <div className='text-sm text-pink-500'>5 Actively Hiring</div>
+            <div className="application-list p-4 pt-2 poppins border-2 border-gray-300 rounded-xl w-[630px] h-[330px] ml-10">
+              <div className="application-top flex justify-between">
+                <div className='text-lg'>Active Applications</div>
+              </div>
+
+              <div className="application-main flex flex-col gap-2 justify-center mt-1 mb-0">
+                <div className="application-card cursor-pointer w-[98%] p-2 pl-4 border border-gray-300 h-[70px] rounded-lg">
+                  <h1 className='text-lg'>Frontend Developer at Tech Solutions</h1>
+                  <div className="application-sub-text flex justify-between text-sm text-gray-500">
+                    <div>Applied 2 days ago</div>
+                    <div>Yesterday, 12:30 PM</div>
+                  </div>
+                </div>
+
+                <div className="application-card cursor-pointer w-[98%] p-2 pl-4 border border-gray-300 h-[70px] rounded-lg">
+                  <h1 className='text-lg'>UI/UX Designer at Creatives Inc. </h1>
+                  <div className="application-sub-text flex justify-between text-sm text-gray-500">
+                    <div>Interview Scheduled</div>
+                    <div>5 Minutes ago</div>
+                  </div>
+                </div>
+
+                <div className="application-card cursor-pointer w-[98%] p-2 pl-4 border border-gray-300 h-[70px] rounded-lg">
+                  <h1 className='text-lg'>Marketing Specialist at Growth Co.</h1>
+                  <div className="application-sub-text flex justify-between text-sm text-gray-500">
+                    <div>Under Review</div>
+                    <div>2 days ago</div>
+                  </div>
+                </div>
+
+                <button type="button" class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">See All Applications</button>
+
+              </div>
+
             </div>
           </div>
-
-          <div className="graph-cards m-4 ml-10 mt-0 flex gap-7 poppins">
-            <div className="graph-card flex flex-col gap-2 justify-center w-[300px] h-[130px] border-2 rounded-xl border-gray-300 p-3">
-              <div className="graph-container flex justify-between items-center">
-                <div className="graph-text flex flex-col gap-1">
-                  <div>Profile Views</div>
-                  <div className='text-3xl'>80</div>
-                </div>
-
-                <div className="sparkline">
-                  <SparklineChart data={monthlyTrend} color="#FF6F61" />
-                </div>
-              </div>
-
-              <div className="graph-content flex items-center justify-between text-sm">
-                <div className='text-gray-500'>2 Messages</div>
-                <div className='bg-blue-100/90 text-xs rounded-lg p-3 pt-1 pb-1 backdrop-blur-lg'>+5% Past week</div>
-              </div>
-            </div>
-
-            <div className="graph-card flex flex-col gap-2 justify-center w-[300px] h-[130px] border-2 rounded-xl border-gray-300 p-3">
-              <div className="graph-container flex items-center justify-between">
-                <div className="graph-text flex flex-col gap-1">
-                  <div>Application Success Rate</div>
-                  <div className='text-3xl'>30%</div>
-                </div>
-
-                <div className="sparkline">
-                  <SparklineChart data={monthlyTrend} color="#FF6F61" />
-                </div>
-              </div>
-
-              <div className="graph-content flex items-center justify-between text-sm">
-                <div className='text-gray-500'>3 Interviews out of 10</div>
-                <div className='bg-blue-100/90 text-xs rounded-lg p-3 pt-1 pb-1 backdrop-blur-lg'>+10% Past month</div>
-              </div>
-            </div>
-          </div>
-
-          <div className="application-list p-4 pt-2 poppins border-2 border-gray-300 rounded-xl w-[630px] h-[330px] ml-10">
-            <div className="application-top flex justify-between">
-              <div className='text-lg'>Active Applications</div>
-            </div>
-
-            <div className="application-main flex flex-col gap-2 justify-center mt-1 mb-0">
-              <div className="application-card cursor-pointer w-[98%] p-2 pl-4 border border-gray-300 h-[70px] rounded-lg">
-                <h1 className='text-lg'>Frontend Developer at Tech Solutions</h1>
-                <div className="application-sub-text flex justify-between text-sm text-gray-500">
-                  <div>Applied 2 days ago</div>
-                  <div>Yesterday, 12:30 PM</div>
-                </div>
-              </div>
-
-              <div className="application-card cursor-pointer w-[98%] p-2 pl-4 border border-gray-300 h-[70px] rounded-lg">
-                <h1 className='text-lg'>UI/UX Designer at Creatives Inc. </h1>
-                <div className="application-sub-text flex justify-between text-sm text-gray-500">
-                  <div>Interview Scheduled</div>
-                  <div>5 Minutes ago</div>
-                </div>
-              </div>
-
-              <div className="application-card cursor-pointer w-[98%] p-2 pl-4 border border-gray-300 h-[70px] rounded-lg">
-                <h1 className='text-lg'>Marketing Specialist at Growth Co.</h1>
-                <div className="application-sub-text flex justify-between text-sm text-gray-500">
-                  <div>Under Review</div>
-                  <div>2 days ago</div>
-                </div>
-              </div>
-
-              <button type="button" class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">See All Applications</button>
+          <div className="dashboard-right flex flex-col gap-4 m-10 ml-0 mt-11">
+            <div className="recommended-jobs-box bg-[rgb(18,24,67)] w-[500px] h-[260px] rounded-lg text-white">
 
             </div>
 
+            <div className="scheduled-interview-box border-2 border-gray-300 w-[500px] h-[295px] rounded-lg">
+
+            </div>
           </div>
         </div>
       </div>
