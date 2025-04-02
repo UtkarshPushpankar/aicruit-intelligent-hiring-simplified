@@ -172,7 +172,7 @@ const CandidateDashboard = () => {
               </div>
 
               <div className="application-main flex flex-col gap-2 justify-center mt-1 mb-0">
-                <div className="application-card cursor-pointer w-[98%] p-2 pl-4 border border-gray-300 h-[70px] rounded-lg">
+                <div className="application-card hover:bg-gray-300 cursor-pointer w-[98%] p-2 pl-4 border border-gray-400 h-[70px] rounded-lg">
                   <h1 className='text-lg'>Frontend Developer at Tech Solutions</h1>
                   <div className="application-sub-text flex justify-between text-sm text-gray-500">
                     <div>Applied 2 days ago</div>
@@ -180,7 +180,7 @@ const CandidateDashboard = () => {
                   </div>
                 </div>
 
-                <div className="application-card cursor-pointer w-[98%] p-2 pl-4 border border-gray-300 h-[70px] rounded-lg">
+                <div className="application-card hover:bg-gray-300 cursor-pointer w-[98%] p-2 pl-4 border border-gray-400 h-[70px] rounded-lg">
                   <h1 className='text-lg'>UI/UX Designer at Creatives Inc. </h1>
                   <div className="application-sub-text flex justify-between text-sm text-gray-500">
                     <div>Interview Scheduled</div>
@@ -188,7 +188,7 @@ const CandidateDashboard = () => {
                   </div>
                 </div>
 
-                <div className="application-card cursor-pointer w-[98%] p-2 pl-4 border border-gray-300 h-[70px] rounded-lg">
+                <div className="application-card hover:bg-gray-300 cursor-pointer w-[98%] p-2 pl-4 border border-gray-400 h-[70px] rounded-lg">
                   <h1 className='text-lg'>Marketing Specialist at Growth Co.</h1>
                   <div className="application-sub-text flex justify-between text-sm text-gray-500">
                     <div>Under Review</div>
@@ -196,19 +196,61 @@ const CandidateDashboard = () => {
                   </div>
                 </div>
 
-                <button type="button" class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">See All Applications</button>
+                <button type="button" className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">See All Applications</button>
 
               </div>
 
             </div>
           </div>
-          <div className="dashboard-right flex flex-col gap-4 m-10 ml-0 mt-11">
-            <div className="recommended-jobs-box bg-[rgb(18,24,67)] w-[500px] h-[260px] rounded-lg text-white">
+          <div className="dashboard-right poppins flex flex-col gap-4 m-10 ml-0 mt-11">
+            <div className="recommended-jobs-box bg-[rgb(18,24,67)] w-[500px] h-[275px] rounded-lg text-white p-4">
+              <h1 className='text-xl mb-2'>Recommended Jobs</h1>
 
+              <div className="job-cards flex flex-col gap-2 items-center">
+                <div className="job-card hover:bg-gray-400 w-[98%] h-[70px] border-2 border-gray-500 rounded-lg p-2 cursor-pointer">
+                  <h1 className='text-lg'>Marketing Specialist at Growth Co.</h1>
+                  <div className="application-sub-text flex justify-between text-sm text-gray-500">
+                    <div>Under Review</div>
+                    <div>2 days ago</div>
+                  </div>
+                </div>
+
+                <div className="job-card hover:bg-gray-400 w-[98%] h-[70px] border-2 border-gray-500 rounded-lg p-2 cursor-pointer">
+                  <h1 className='text-lg'>Marketing Specialist at Growth Co.</h1>
+                  <div className="application-sub-text flex justify-between text-sm text-gray-500">
+                    <div>Under Review</div>
+                    <div>2 days ago</div>
+                  </div>
+                </div>
+
+                <button type="button" className="w-[98%] mt-3 text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">See more recommended jobs</button>
+
+              </div>
             </div>
 
-            <div className="scheduled-interview-box border-2 border-gray-300 w-[500px] h-[295px] rounded-lg">
+            <div className="scheduled-interview-box border-2 border-gray-300 w-[500px] h-[280px] rounded-lg p-4">
+                <h1 className='text-xl mb-3'>Scheduled Interviews</h1>
 
+                <div className="interviews-cards flex flex-col gap-2 items-center">
+                <div className="interview-card w-[98%] hover:bg-gray-200 h-[70px] border-2 border-gray-500 rounded-lg p-2 cursor-pointer">
+                  <h1 className='text-lg'>Interview at Growth Co.</h1>
+                  <div className="application-sub-text flex justify-between text-sm text-gray-500">
+                    <div>Under Review</div>
+                    <div>2 days ago</div>
+                  </div>
+                </div>
+
+                <div className="interview-card w-[98%] hover:bg-gray-200 h-[70px] border-2 border-gray-500 rounded-lg p-2 cursor-pointer">
+                  <h1 className='text-lg'>Interview at Tech Solutions</h1>
+                  <div className="application-sub-text flex justify-between text-sm text-gray-500">
+                    <div>Applied 2 days ago</div>
+                    <div>Yesterday, 12:30 PM</div>
+                  </div>
+                </div>
+
+                <button type="button" className="w-[98%] mt-3 text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">See your entire schedule</button>
+
+              </div>
             </div>
           </div>
         </div>
