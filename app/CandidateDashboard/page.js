@@ -4,6 +4,7 @@ import { useSession, signOut } from "next-auth/react";
 import { useRouter } from 'next/navigation';
 import Search from "@/components/Search"
 import SparklineChart from '@/components/SparklineChart';
+import Link from 'next/link';
 
 import {
   DropdownMenu,
@@ -49,30 +50,36 @@ const CandidateDashboard = () => {
         <div className="menu flex flex-col gap-12 justify-start m-8">
           <div className='text-gray-600 text-sm'>MAIN MENU</div>
           <ul className='flex flex-col gap-8'>
-            <li className='flex gap-4 cursor-pointer'>
-              <img width={25} src="profile.png" alt="" />
-              <div className='poppins'>Profile</div>
-            </li>
+            <Link href={"/CandidateDashboard/profile"}>
+              <li className='flex gap-4 cursor-pointer'>
+                <img width={25} src="profile.png" alt="" />
+                <div className='poppins'>Profile</div>
+              </li>
+            </Link>
 
-            <li className='flex gap-4 cursor-pointer'>
-              <img width={25} src="application.png" alt="" />
-              <div className='poppins'>Applications</div>
-            </li>
+            <Link href={"/CandidateDashboard/applications"}>
+              <li className='flex gap-4 cursor-pointer'>
+                <img width={25} src="application.png" alt="" />
+                <div className='poppins'>Applications</div>
+              </li></Link>
 
-            <li className='flex gap-4 cursor-pointer'>
-              <img width={25} src="interview.png" alt="" />
-              <div className='poppins'>Interviews</div>
-            </li>
+            <Link href={"/CandidateDashboard/interviews"}>
+              <li className='flex gap-4 cursor-pointer'>
+                <img width={25} src="interview.png" alt="" />
+                <div className='poppins'>Interviews</div>
+              </li></Link>
 
-            <li className='flex gap-4 cursor-pointer'>
-              <img width={25} src="message.png" alt="" />
-              <div className='poppins'>Messages</div>
-            </li>
+            <Link href={"/CandidateDashboard/messages"}>
+              <li className='flex gap-4 cursor-pointer'>
+                <img width={25} src="message.png" alt="" />
+                <div className='poppins'>Messages</div>
+              </li></Link>
 
-            <li className='flex gap-4 cursor-pointer'>
-              <img width={25} src="analytics.png" alt="" />
-              <div className='poppins'>Analytics</div>
-            </li>
+            <Link href={"/CandidateDashboard/analytics"}>
+              <li className='flex gap-4 cursor-pointer'>
+                <img width={25} src="analytics.png" alt="" />
+                <div className='poppins'>Analytics</div>
+              </li></Link>
           </ul>
         </div>
       </div>
@@ -229,9 +236,9 @@ const CandidateDashboard = () => {
             </div>
 
             <div className="scheduled-interview-box border-2 border-gray-300 w-[500px] h-[280px] rounded-lg p-4">
-                <h1 className='text-xl mb-3'>Scheduled Interviews</h1>
+              <h1 className='text-xl mb-3'>Scheduled Interviews</h1>
 
-                <div className="interviews-cards flex flex-col gap-2 items-center">
+              <div className="interviews-cards flex flex-col gap-2 items-center">
                 <div className="interview-card w-[98%] hover:bg-gray-200 h-[70px] border-2 border-gray-500 rounded-lg p-2 cursor-pointer">
                   <h1 className='text-lg'>Interview at Growth Co.</h1>
                   <div className="application-sub-text flex justify-between text-sm text-gray-500">
