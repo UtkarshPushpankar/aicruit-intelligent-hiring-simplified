@@ -77,8 +77,8 @@ const applications = () => {
                 </div>
             </div>
 
-            <div className="main w-[84vw]">
-                <div className="top h-[10vh] border-b-2 border-b-gray-300 flex items-center justify-between">
+            <div className="main w-[84vw] flex flex-col items-center">
+                <div className="top h-[10vh] w-[100%] border-b-2 border-b-gray-300 flex items-center justify-between">
                     <div className="search m-10">
                         <Search />
                     </div>
@@ -105,6 +105,39 @@ const applications = () => {
                     </div>
                 </div>
 
+                <div className="application-list m-8 p-4 poppins border-2 border-gray-300 rounded-xl w-[630px] ml-10">
+                    <div className="application-top flex justify-between">
+                        <div className='text-lg'>Active Applications</div>
+                    </div>
+
+                    <div className="application-main flex flex-col gap-4 justify-center mt-4 mb-0">
+                        <div className="application-card hover:bg-gray-300 cursor-pointer w-[98%] p-2 pl-4 border border-gray-400 h-[70px] rounded-lg">
+                            <h1 className='text-lg'>Frontend Developer at Tech Solutions</h1>
+                            <div className="application-sub-text flex justify-between text-sm text-gray-500">
+                                <div>Applied 2 days ago</div>
+                                <div>Yesterday, 12:30 PM</div>
+                            </div>
+                        </div>
+
+                        <div className="application-card hover:bg-gray-300 cursor-pointer w-[98%] p-2 pl-4 border border-gray-400 h-[70px] rounded-lg">
+                            <h1 className='text-lg'>UI/UX Designer at Creatives Inc. </h1>
+                            <div className="application-sub-text flex justify-between text-sm text-gray-500">
+                                <div>Interview Scheduled</div>
+                                <div>5 Minutes ago</div>
+                            </div>
+                        </div>
+
+                        <div className="application-card hover:bg-gray-300 cursor-pointer w-[98%] p-2 pl-4 border border-gray-400 h-[70px] rounded-lg">
+                            <h1 className='text-lg'>Marketing Specialist at Growth Co.</h1>
+                            <div className="application-sub-text flex justify-between text-sm text-gray-500">
+                                <div>Under Review</div>
+                                <div>2 days ago</div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
 
             </div>
         </div>

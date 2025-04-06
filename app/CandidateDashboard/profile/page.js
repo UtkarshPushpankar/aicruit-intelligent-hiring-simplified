@@ -12,6 +12,7 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import CompleteProfile from '@/components/CompleteProfile';
 
 const profile = () => {
 
@@ -33,7 +34,7 @@ const profile = () => {
 
     return (
         <div className="profile-container flex h-screen">
-            <div className="sidebar w-[16vw] border-r-2 border-r-gray-300 bg-gradient-to-r from-[#398ab0] to-[#b7e0f3]">
+            <div className="sidebar w-[16vw] h=[100%] border-r-2 border-r-gray-300 bg-gradient-to-r from-[#398ab0] to-[#b7e0f3]">
                 <Link href={"/CandidateDashboard"}>
                     <h1 className='m-4 p-2 text-center uncial text-4xl text-gradient-3'>
                         AIcruit
@@ -105,7 +106,7 @@ const profile = () => {
                     </div>
                 </div>
 
-
+                <CompleteProfile/>
             </div>
         </div>
     );

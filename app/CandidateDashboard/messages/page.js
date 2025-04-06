@@ -18,11 +18,11 @@ const messages = () => {
     const { data: session } = useSession();
     const router = useRouter();
 
-    // useEffect(() => {
-    //     if (!session) {
-    //         router.push('/login');
-    //     }
-    // }, [session, router]);
+    useEffect(() => {
+        if (!session) {
+            router.push('/login');
+        }
+    }, [session, router]);
 
     // If session isn't loaded, return null (or a loading indicator)
     if (!session) {

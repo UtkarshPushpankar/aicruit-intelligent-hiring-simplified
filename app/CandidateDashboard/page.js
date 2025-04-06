@@ -203,7 +203,9 @@ const CandidateDashboard = () => {
                   </div>
                 </div>
 
-                <button type="button" className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">See All Applications</button>
+                <Link href={"/CandidateDashboard/applications"}>
+                  <button type="button" className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 w-[98%]">See All Applications</button>
+                </Link>
 
               </div>
 
@@ -255,7 +257,9 @@ const CandidateDashboard = () => {
                   </div>
                 </div>
 
-                <button type="button" className="w-[98%] mt-3 text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">See your entire schedule</button>
+                <Link className='w-[100%]' href={"/CandidateDashboard/interviews"}>
+                  <button type="button" className="mt-3 text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 w-[98%]">See your entire schedule</button>
+                </Link>
 
               </div>
             </div>

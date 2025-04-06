@@ -18,11 +18,11 @@ const interviews = () => {
     const { data: session } = useSession();
     const router = useRouter();
 
-    useEffect(() => {
-        if (!session) {
-            router.push('/login');
-        }
-    }, [session, router]);
+    // useEffect(() => {
+    //     if (!session) {
+    //         router.push('/login');
+    //     }
+    // }, [session, router]);
 
     // If session isn't loaded, return null (or a loading indicator)
     if (!session) {
@@ -77,8 +77,8 @@ const interviews = () => {
                 </div>
             </div>
 
-            <div className="main w-[84vw]">
-                <div className="top h-[10vh] border-b-2 border-b-gray-300 flex items-center justify-between">
+            <div className="main w-[84vw] flex flex-col items-center">
+                <div className="top h-[10vh] w-[100%] border-b-2 border-b-gray-300 flex items-center justify-between">
                     <div className="search m-10">
                         <Search />
                     </div>
@@ -105,6 +105,44 @@ const interviews = () => {
                     </div>
                 </div>
 
+                <div className="scheduled-interview-box mt-10 border-2 border-gray-300 w-[500px] rounded-lg p-4">
+                    <h1 className='text-xl mb-3'>Scheduled Interviews</h1>
+
+                    <div className="interviews-cards flex flex-col gap-4 items-center">
+                        <div className="interview-card w-[98%] hover:bg-gray-200 h-[70px] border-2 border-gray-500 rounded-lg p-2 cursor-pointer">
+                            <h1 className='text-lg'>Interview at Growth Co.</h1>
+                            <div className="application-sub-text flex justify-between text-sm text-gray-500">
+                                <div>Under Review</div>
+                                <div>2 days ago</div>
+                            </div>
+                        </div>
+
+                        <div className="interview-card w-[98%] hover:bg-gray-200 h-[70px] border-2 border-gray-500 rounded-lg p-2 cursor-pointer">
+                            <h1 className='text-lg'>Interview at Tech Solutions</h1>
+                            <div className="application-sub-text flex justify-between text-sm text-gray-500">
+                                <div>Applied 2 days ago</div>
+                                <div>Yesterday, 12:30 PM</div>
+                            </div>
+                        </div> 
+
+                        <div className="interview-card w-[98%] hover:bg-gray-200 h-[70px] border-2 border-gray-500 rounded-lg p-2 cursor-pointer">
+                            <h1 className='text-lg'>Interview at Tech Solutions</h1>
+                            <div className="application-sub-text flex justify-between text-sm text-gray-500">
+                                <div>Applied 2 days ago</div>
+                                <div>Yesterday, 12:30 PM</div>
+                            </div>
+                        </div>
+
+                        <div className="interview-card w-[98%] hover:bg-gray-200 h-[70px] border-2 border-gray-500 rounded-lg p-2 cursor-pointer">
+                            <h1 className='text-lg'>Interview at Tech Solutions</h1>
+                            <div className="application-sub-text flex justify-between text-sm text-gray-500">
+                                <div>Applied 2 days ago</div>
+                                <div>Yesterday, 12:30 PM</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
 
             </div>
         </div>
